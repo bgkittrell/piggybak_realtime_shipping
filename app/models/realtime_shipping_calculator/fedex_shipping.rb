@@ -1,5 +1,5 @@
 class RealtimeShippingCalculator::FedexShipping < RealtimeShippingCalculator
-  KEYS = ["key", "password", "account", "login"]
+  KEYS = ["key", "password", "account", "login", "service_name"]
 
   def self.description
     "Real-time Fedex"
