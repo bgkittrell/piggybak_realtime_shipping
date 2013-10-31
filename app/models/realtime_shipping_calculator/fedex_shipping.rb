@@ -1,4 +1,4 @@
-class RealtimeShippingCalculator::FedexShipping
+class RealtimeShippingCalculator::FedexShipping < RealtimeShippingCalculator
   KEYS = ["key", "password", "account", "login"]
 
   def self.description
