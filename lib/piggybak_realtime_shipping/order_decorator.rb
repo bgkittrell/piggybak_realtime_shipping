@@ -9,7 +9,7 @@ module PiggybakRealtimeShipping
   
       self.line_items.each do |li|
         if !li._destroy
-          weight += li.variant.item.weight.to_f*li.quantity.to_i
+          weight += li.sellable.item.weight.to_f*li.quantity.to_i
         end
       end
   
@@ -35,7 +35,7 @@ module PiggybakRealtimeShipping
       li_details = []
       self.line_items.each do |li|
         if !li._destroy
-          li_details << "#{li.variant_id}-#{li.quantity.to_i}"
+          li_details << "#{li.sellable_id}-#{li.quantity.to_i}"
         end
       end
       cart_info = li_details.join('--')
