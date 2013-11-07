@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     piggybak_realtime_shipping (0.0.1)
-      rails (~> 3.2.6)
+      active_shipping
+      piggybak
 
 GEM
   remote: http://rubygems.org/
@@ -20,6 +21,23 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.3)
+    active_shipping (0.11.0)
+      active_utils (>= 1.0.1)
+      activesupport (>= 2.3.5)
+      builder
+      i18n
+      json (>= 1.5.1)
+    active_utils (2.0.1)
+      activesupport (>= 2.3.11)
+      i18n
+    activemerchant (1.41.0)
+      active_utils (~> 2.0, >= 2.0.1)
+      activesupport (>= 2.3.14, < 5.0.0)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (~> 0.5)
+      json (~> 1.7)
+      money (< 6.0.0)
+      nokogiri (~> 1.4)
     activemodel (3.2.8)
       activesupport (= 3.2.8)
       builder (~> 3.0.0)
@@ -35,27 +53,76 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    atomic (1.1.14)
+    bcrypt-ruby (3.1.2)
+    bootstrap-sass (2.3.2.2)
+      sass (~> 3.2)
     builder (3.0.3)
+    coffee-rails (3.2.2)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.2.0)
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.6.3)
+    countries (0.9.3)
+      currencies (~> 0.4.2)
+    currencies (0.4.2)
+    devise (3.2.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
+    execjs (2.0.2)
+    font-awesome-rails (3.2.1.3)
+      railties (>= 3.2, < 5.0)
+    haml (4.0.4)
+      tilt
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.3)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
+    jquery-ui-rails (3.0.1)
+      jquery-rails
+      railties (>= 3.1.0)
     json (1.7.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.19)
+    mime-types (1.25)
+    mini_portile (0.5.2)
+    money (5.1.1)
+      i18n (~> 0.6.0)
     multi_json (1.3.6)
+    nested_form (0.3.2)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
+    orm_adapter (0.4.0)
+    piggybak (0.6.32)
+      activemerchant
+      countries
+      devise
+      rack-ssl-enforcer
+      rails (~> 3.2.8)
+      rails_admin (~> 0.4.5)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-pjax (0.7.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.3)
     rack-ssl (1.3.2)
       rack
+    rack-ssl-enforcer (0.2.6)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (3.2.8)
@@ -66,6 +133,21 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails_admin (0.4.9)
+      bootstrap-sass (~> 2.2)
+      builder (~> 3.0)
+      coffee-rails (>= 3.1, < 5)
+      font-awesome-rails (~> 3.0)
+      haml (~> 4.0)
+      jquery-rails (>= 2.1, < 4)
+      jquery-ui-rails (~> 3.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.6)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      safe_yaml (~> 0.6)
+      sass-rails (~> 3.1)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -76,17 +158,27 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    remotipart (1.2.1)
+    safe_yaml (0.9.7)
+    sass (3.2.12)
+    sass-rails (3.2.6)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     thor (0.16.0)
+    thread_safe (0.1.3)
+      atomic
     tilt (1.3.3)
-    treetop (1.4.10)
+    treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.33)
+    tzinfo (0.3.38)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -94,4 +186,3 @@ PLATFORMS
 DEPENDENCIES
   jquery-rails
   piggybak_realtime_shipping!
-  sqlite3
