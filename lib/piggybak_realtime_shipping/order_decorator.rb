@@ -8,8 +8,8 @@ module PiggybakRealtimeShipping
       result = 0
   
       self.line_items.each do |li|
-        if !li._destroy
-          weight += li.sellable.item.weight.to_f*li.quantity.to_i
+        if !li._destroy and li.sellable
+          result += li.sellable.item.weight.to_f*li.quantity.to_i
         end
       end
   
@@ -41,7 +41,7 @@ module PiggybakRealtimeShipping
       cart_info = li_details.join('--')
   
       address = self.shipping_address
-        cache_key = "#{cart_info}-#{address.country_id}-#{address.state_id}-#{address.zip}-#{address.city}-#{self.residential_shipping}"
+        cache_key = "#{cart_info}-#{address.country_id}-#{address.state_id}-#{address.zip}-#{address.city}"
       Digest::MD5.hexdigest(cache_key)
     end
   end
